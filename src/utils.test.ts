@@ -48,6 +48,17 @@ test('display members of a certain key', () => {
   expect(console.log).toHaveBeenCalledWith('2) baz')
 })
 
+test('returns error if a given key is not present in the dictionary', () => {
+  const map = {
+    "foo": new Set<string>().add("bar").add("baz"),
+    "bang": new Set<string>().add("bar").add("baz")
+  }
+  console.log = jest.fn()
+  displayMembers(map, 'hello')
+  expect(console.log).toHaveBeenCalledTimes(1)
+  expect(console.log).toHaveBeenCalledWith(') ERROR, hello does not exists')
+})
+
 test('removes member from a key', () => {
   const map = {
     "foo": new Set<string>().add("bar").add("baz"),

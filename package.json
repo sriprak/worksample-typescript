@@ -30,6 +30,7 @@
       "tsx",
       "js"
     ],
-    "collectCoverage": true
+    "collectCoverage": true,
+    "modulePathIgnorePatterns": ["<rootDir>/dist/"]
   }
 }

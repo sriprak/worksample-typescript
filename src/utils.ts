@@ -29,11 +29,15 @@ export const addKeysMembers = (map: MultiValueDictionary, key: string, value: st
 }
 
 export const displayMembers = (map: MultiValueDictionary, key: string) => {
-  const members: string [] = Array.from( map[key].values() )
-  let idx: number = 0
-  for ( const member of members ) {
-    idx += 1
-    console.log( `${ idx }) ${ member }` )
+  if (!map[key]) {
+    console.log(`) ERROR, ${key} does not exists`)
+  } else {
+    const members: string [] = Array.from( map[key].values() )
+    let idx: number = 0
+    for ( const member of members ) {
+      idx += 1
+      console.log( `${ idx }) ${ member }` )
+    }
   }
 }
 
