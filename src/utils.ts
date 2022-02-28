@@ -94,8 +94,10 @@ export const displayAllMembersInDictionary = (map: MultiValueDictionary) => {
       acc.push( ...curr )
       return acc
     }, [] )
-    for ( let i in result ) {
-      console.log( `${ parseInt( i ) + 1 }) ${ result[i] }` )
+    let idx: number = 0
+    for ( let res of result ) {
+      idx += 1
+      console.log( `${ idx }) ${ res }` )
     }
   }
 }
@@ -104,12 +106,12 @@ export const displayAllItemsInDictionary = (map: MultiValueDictionary) => {
   if ( Object.keys( map ).length === 0 ) {
     console.log( '( empty set )' )
   } else {
-    let i: number = 0
+    let idx: number = 0
     for ( const [ key, value ] of Object.entries( map ) ) {
       const data = Array.from( value.values() )
       for ( const elem of data ) {
-        i += 1
-        console.log( `${ i }) ${ key }: ${ elem }` )
+        idx += 1
+        console.log( `${ idx }) ${ key }: ${ elem }` )
       }
     }
   }
