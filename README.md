@@ -1,12 +1,16 @@
 # App Overview
 
-A basic console app built with Typescript
+A Multi-value Dictionary console app built according to the specification. The project uses Typescript, Node, Jest, ReadLine-Sync, etc.
 
 # Setup
 
-`npm install`
+Run `npm install`
 
-# Run
+# Run the app
 
-`npm run start`
+Run `npm start`
+
+# Tests
+
+Run `npm test`
 
