@@ -7,7 +7,7 @@
     "start": "npx tsc && node ./dist/index.js",
     "test": "jest --coverage"
   },
-  "author": "",
+  "author": "Sriprasad Kannan",
   "license": "UNLICENSED",
   "devDependencies": {
     "@types/jest": "^27.4.1",
