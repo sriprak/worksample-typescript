@@ -1,4 +1,4 @@
-import { retrieveKeys, addKeysMembers, displayMembers, displayAllMembersInDictionary, displayAllItemsInDictionary, checkIfMemberExists, checkIfKeyExists, removeAllMembers, removeKeyMember, clearDictionary } from './utils'
+import { retrieveKeys, addKeysMembers, displayMembers, displayAllMembersInDictionary, displayAllItemsInDictionary, checkIfMemberExists, checkIfKeyExists, removeAllMembers, removeKeyMember, clearDictionary, findKeysForValue } from './utils'
 
 test('Should return empty set', () => {
   const map = {}
@@ -198,6 +198,37 @@ test('displays nothing if map is empty', () => {
   const map = {}
   console.log = jest.fn()
   displayAllItemsInDictionary(map)
+  expect(console.log).toHaveBeenCalledTimes(1)
+  expect(console.log).toHaveBeenCalledWith('( empty set )')
+})
+
+test('finds key by value', () => {
+  const map = {
+    "foo": new Set<string>().add("bar").add("baz"),
+    "bang": new Set<string>().add("bar").add("baz")
+  }
+  console.log = jest.fn()
+  findKeysForValue(map, 'bar')
+  expect(console.log).toHaveBeenCalledTimes(2)
+  expect(console.log).toHaveBeenCalledWith('1) foo: bar')
+  expect(console.log).toHaveBeenCalledWith('2) bang: bar')
+})
+
+test('Outputs error if no keys are found', () => {
+  const map = {
+    "foo": new Set<string>().add("bar").add("baz"),
+    "bang": new Set<string>().add("bar").add("baz")
+  }
+  console.log = jest.fn()
+  findKeysForValue(map, 'world')
+  expect(console.log).toHaveBeenCalledTimes(1)
+  expect(console.log).toHaveBeenCalledWith(') ERROR, world was not found in the dictionary')
+})
+
+test('displays nothing if map is empty', () => {
+  const map = {}
+  console.log = jest.fn()
+  findKeysForValue(map, 'bar')
   expect(console.log).toHaveBeenCalledTimes(1)
   expect(console.log).toHaveBeenCalledWith('( empty set )')
 })

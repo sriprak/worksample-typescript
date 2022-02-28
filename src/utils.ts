@@ -156,3 +156,30 @@ export const displayAllItemsInDictionary = (map: MultiValueDictionary) => {
     }
   }
 }
+
+/*
+* finds the keys to which a member belongs
+* */
+export const findKeysForValue = (map: MultiValueDictionary, value: string) => {
+  // checks to see if keys are present or not
+  if ( Object.keys( map ).length === 0 ) {
+    console.log( '( empty set )' )
+  } else {
+    const keys = Object.keys(map)
+    const keysArr: Array<string> = []
+    let idx: number = 0
+    for (const key of keys) {
+      if (map[key].has(value)) {
+        keysArr.push(key)
+      }
+    }
+    if (keysArr.length > 0) {
+      for(const key of keysArr) {
+        idx += 1
+        console.log(`${idx}) ${key}: ${value}`)
+      }
+    } else {
+      console.log(`) ERROR, ${value} was not found in the dictionary`)
+    }
+  }
+}

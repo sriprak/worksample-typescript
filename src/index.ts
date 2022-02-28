@@ -10,7 +10,8 @@ import {
   checkIfKeyExists,
   checkIfMemberExists,
   displayAllMembersInDictionary,
-  displayAllItemsInDictionary
+  displayAllItemsInDictionary,
+  findKeysForValue
 } from './utils'
 
 // Initializing an empty map object which is fed to the run method
@@ -60,6 +61,10 @@ async function run(map: MultiValueDictionary) {
         break
       case 'items':
         displayAllItemsInDictionary( map )
+        break
+      case 'findkeys':
+        const value7 = inputArr[1]
+        findKeysForValue( map, value7 )
         break
       default:
         console.log( ') Invalid Command' )
