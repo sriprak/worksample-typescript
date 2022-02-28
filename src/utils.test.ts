@@ -32,7 +32,7 @@ test('returns an error if key and value already present', () => {
   addKeysMembers(map, 'foo', 'bar')
   expect(console.log).toHaveBeenCalledWith(') ADDED')
   addKeysMembers(map, 'foo', 'bar')
-  expect(console.log).toHaveBeenCalledWith(') bar already exists in foo')
+  expect(console.log).toHaveBeenCalledWith(') ERROR, bar already exists in foo')
   expect(console.log).toHaveBeenCalledTimes(2)
 })
 

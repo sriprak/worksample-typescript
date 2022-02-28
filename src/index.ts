@@ -1,4 +1,4 @@
-import { question } from 'readline-sync';
+import { question,  } from 'readline-sync';
 import { MultiValueDictionary } from './types'
 import {
   retrieveKeys,
@@ -13,11 +13,12 @@ import {
   displayAllItemsInDictionary
 } from './utils'
 
+// Initializing an empty map object which is fed to the run method
 let map: MultiValueDictionary = {}
 
 async function run(map: MultiValueDictionary) {
   while ( true ) {
-    const input = question( '>' );
+    const input = question( '> ' );
     const inputArr = input.split( ' ' )
     const command = inputArr[0].toLowerCase()
     switch (command) {
